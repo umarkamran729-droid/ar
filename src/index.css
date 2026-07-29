@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  /* Brand navy (from AR logo A) and steel (from AR logo R) */
+  --color-brand: hsl(218 60% 28%);
+  --color-brand-foreground: hsl(0 0% 100%);
+  --color-steel: hsl(218 12% 58%);
+
+  /* Re-tint the zinc dark scale toward a richer, visible navy
+     (so dark surfaces actually read as deep navy instead of black). */
+  --color-zinc-950: hsl(218 50% 11%);
+  --color-zinc-900: hsl(218 45% 16%);
+  --color-zinc-800: hsl(218 38% 23%);
+  --color-zinc-700: hsl(218 30% 33%);
+  --color-zinc-600: hsl(218 22% 46%);
+  --color-zinc-500: hsl(218 16% 58%);
+  --color-zinc-400: hsl(218 18% 72%);
+  --color-zinc-300: hsl(218 20% 84%);
+  /* Light scale picks up a soft warm cream tone so light pages feel
+     premium and editorial instead of clinical white. */
+  --color-zinc-200: hsl(35 22% 90%);
+  --color-zinc-100: hsl(35 28% 95%);
+  --color-zinc-50:  hsl(35 35% 97%);
+  
+  --font-sans: var(--app-font-sans);
+  --font-heading: var(--app-font-heading);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* AL Razaaq Industrial Palette — Navy (logo A) + Brass + Cream.
+     Premium European-industrial trio used by heritage manufacturing brands. */
+  --background: 35 35% 97%;            /* Warm cream-white, not sterile */
+  --foreground: 218 50% 11%;           /* Deep navy text */
+  --border: 35 18% 86%;
+  --card: 0 0% 100%;
+  --card-foreground: 218 50% 11%;
+  --card-border: 35 18% 86%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 218 50% 11%;
+  --popover-border: 35 18% 86%;
+  
+  --primary: 32 88% 48%;               /* Warm brass / industrial gold */
+  --primary-foreground: 218 50% 11%;   /* Deep navy text on brass */
+  
+  --secondary: 35 28% 92%;
+  --secondary-foreground: 218 50% 11%;
+  
+  --muted: 35 28% 92%;
+  --muted-foreground: 218 18% 38%;
+  
+  --accent: 32 88% 48%;
+  --accent-foreground: 218 50% 11%;
+  
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --input: 35 18% 86%;
+  --ring: 32 88% 48%;
+
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-heading: 'Space Grotesk', sans-serif;
+  --app-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 218 38% 6%;
+  --foreground: 218 14% 96%;
+  --border: 218 22% 18%;
+  
+  --card: 218 32% 10%;
+  --card-foreground: 218 14% 96%;
+  --card-border: 218 22% 18%;
+  
+  --popover: 218 32% 10%;
+  --popover-foreground: 218 14% 96%;
+  --popover-border: 218 22% 18%;
+  
+  --primary: 35 90% 52%;
+  --primary-foreground: 218 38% 6%;
+  
+  --secondary: 218 22% 18%;
+  --secondary-foreground: 218 14% 96%;
+  
+  --muted: 218 22% 18%;
+  --muted-foreground: 218 15% 68%;
+  
+  --accent: 35 90% 52%;
+  --accent-foreground: 218 38% 6%;
+  
+  --destructive: 0 62% 32%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --input: 218 22% 18%;
+  --ring: 35 90% 52%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
